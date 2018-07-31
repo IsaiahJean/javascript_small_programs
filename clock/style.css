@@ -1,0 +1,122 @@
+html {
+    font-family: "times";
+    font-size: 10px;
+
+}
+
+body{
+    background: grey url("https://www.highreshdwallpapers.com/wp-content/uploads/2013/03/Wood-Panels.jpg") 
+                no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:100vh;
+    margin: 0;
+}
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid var(--border);
+    background: beige;
+    border-radius: 50%;
+    margin: 50px auto;  
+    position: relative;
+    padding: 2rem;
+    -webkit-box-shadow: 0 0 0px 5px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 0px 5px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,.5);
+    -o-box-shadow: 0 0 0px 5px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 0px 5px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,.5);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height:100%;
+    transform: translateY(-3px);/*account for height of clock hand*/
+}
+
+.hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    -webkit-box-shadow: 1px 1px 6px grey;
+    -moz-box-shadow: 1px 1px 6px grey;
+    -o-box-shadow: 1px 1px 6px grey;
+    box-shadow: 1px 1px 6px grey;
+}
+
+.hand.second-hand {
+    height: 3px;
+    background: red;
+    z-index: -1;
+    margin-left: 1.5%;
+}
+
+.hand.minute-hand {
+    margin-left: 2%;
+}
+
+.hand.hour-hand {
+    width: 38%;
+    margin-left: 14%;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 18px;
+    height: 18px;
+    background: gold;
+    transform: translate(12.5px, -4.5px);
+    border-radius: 50%;
+    border: 6px solid black;
+}
+
+#canvas {
+    color: blue;
+    position: relative;
+    right: 37px;
+    top: -35px;
+}
+
+label {
+    color: black;
+    font-size: 2rem;
+}
+
+.border-change {
+    text-align: center;
+}
+
+.border-change input:hover {
+    cursor: pointer;
+}
+
+:root {
+    --border: #000000;
+}

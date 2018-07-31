@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Image Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    
+    <div class="header">
+        <a><img src="http://www.stickpng.com/assets/images/58428defa6515b1e0ad75ab4.png"></a>
+        <h1>2017 TOP 5 PlAYERS</h1>
+    </div>
+    
+    <div class="panels">
+        
+        <div class="panel panel1">
+            <p>Lebron</p>
+            <p>King James</p>
+            <p>James</p>
+        </div>
+        <div class="panel panel2">
+            <p>Kevin</p>
+            <p>The Second Coming</p>
+            <p>Durant</p>
+        </div>
+        <div class="panel panel3">
+            <p>kahwi</p>
+            <p>The Klaw</p>
+            <p>Leonard</p>
+        </div>
+        <div class="panel panel4">
+            <p>Stephen</p>
+            <p>The Golden Boy</p>
+            <p>Curry</p>
+        </div>
+        <div class="panel panel5">
+            <p>Russel</p>
+            <p>Beast brook</p>
+            <p>Westbrook</p>
+        </div>
+        
+    </div>
+        
+        
+    <script>
+        const panels = document.querySelectorAll(".panel");
+    
+        
+        function panelOpen() {
+            this.classList.add('open');
+        }
+        
+        function panelClose() {
+            this.classList.remove('open');
+        }
+        
+        function openActive(e) {
+                this.classList.add('open-active');
+            
+        }
+        
+        function closeActive(e) {
+                this.classList.remove('open-active');
+        }
+        
+        panels.forEach(panel => panel.addEventListener('mouseover', 
+        panelOpen));
+        panels.forEach(panel => panel.addEventListener('mouseout', 
+        panelClose));
+        panels.forEach(panel => panel.addEventListener('mouseover', 
+        openActive));
+        panels.forEach(panel => panel.addEventListener('mouseout', 
+        closeActive));
+    </script>
+        
+</body>
+    
+</html>

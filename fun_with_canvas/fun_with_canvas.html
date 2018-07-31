@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Fun With Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    
+    <canvas id="draw"></canvas>
+    
+    <div class="container">
+        
+        <h1>Fun With Canvas</h1>
+        
+        <div class="color-change" title="change color">
+            <label for="canvas color">Color:</label>
+            <input type="color" name="color" value="#000000">
+        </div>
+        
+        <div id="eraser-container" title="eraser">
+            Eraser:<span id="eraser"></span>
+        </div>
+        
+        <div class="line-width" title="change brush size">
+            <span>brush size:</span>
+            <span value="10" class="circle" id="small"></span>
+            <span value="20" class="circle" id="medium"></span>
+            <span value="30" class="circle active" id="large"></span>
+            <span value="40" class="circle" id="x-large"></span>
+            <span value="60" class="circle" id="xx-large"></span>
+            <span value="80" class="circle" id="xxx-large"></span>
+        </div>
+        
+    </div>
+
+<script>
+    alert("You can right-click or alt-click on canvas to save image.");
+
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = (window.innerHeight / 1.22);
+    ctx.strokeStyle = "#BADA55";
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 30;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let brushSize = 30;
+    const colorChange = document.querySelector(".color-change input");
+    
+    function draw(e) {
+        if(!isDrawing) return; // function stopped when they are not moused down
+
+        ctx.strokeStyle = colorChange.value;
+        ctx.lineWidth = brushSize;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    }
+    
+    canvas.addEventListener('mousedown', (e) => { 
+        isDrawing = true;
+        [lastX,lastY] = [e.offsetX, e.offsetY];
+    });
+    
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+    
+    //change  brush size
+    function handleCLick() {
+        circles.forEach( (node) => node.classList.remove("active"));
+        brushSize = this.attributes[1].nodeValue;
+        this.classList.add("active");
+    }
+    
+    const circles = document.querySelectorAll(".circle");
+    circles.forEach( (node) => node.addEventListener("click", handleCLick));
+    
+    //change to eraser
+    function colorToWhite() {
+        colorChange.value = "#ffffff";
+    }
+    const eraser = document.getElementById("eraser");
+    eraser.addEventListener('click', colorToWhite);
+    
+</script>
+
+</body>
+
+</html>

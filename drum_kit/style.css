@@ -1,0 +1,110 @@
+html,
+body,
+.keys {
+  height: 100%;
+  margin: 0;
+}
+
+.keys {
+    background:rgb(34, 36, 38);
+    border-radius:5px;
+    -moz-box-shadow:    inset 0 0 40px #000000;
+    -webkit-box-shadow: inset 0 0 40px #000000;
+    box-shadow:         inset 0 0 40px #000000;
+    padding: 15px;
+    padding-right: 25px;
+    height:100vh;
+    width:100%;
+    position:relative;
+}
+
+.key {
+    position: relative;
+    height:30vh;
+    width:100%;
+    box-shadow: 0px 0px 8px black,
+                inset 0 0 .5px rgb(81, 80, 75);
+    margin: 5px;
+    font: white;
+    background: rgb(12, 12, 12);
+    border-radius: 6px;
+    border-right: 1px solid rgb(22, 22, 22);
+    border-bottom: 2px solid rgb(22, 22, 22);
+    -webkit-transition: all 0.07s;
+    -moz-transition: all 0.07s;
+    -o-transition: all 0.07s;
+    transition: all 0.01s;
+}
+
+.key:hover{
+    cursor:pointer;
+}
+
+.playing {
+    -moz-transform: tanslateY(1px); /* IE 9 */
+    -webkit-transform: translateY(1px);/* Safari */
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    transform: translateY(.5px);
+    border:none;
+}
+
+.key span {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+    color: grey;
+    font-size:.9em;
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.key kbd {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+@media only screen and (max-width: 1000px) {
+    .key kbd{
+        display:none;
+    }
+    
+    .key span{
+        top:50%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .keys{
+        padding-right: 18px;
+    }
+    
+    .key{
+        display:inline-block;
+        margin:-10px;
+        margin-top:10px;
+        width:121%;
+        
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .key{
+        display:inline-block;
+        margin:-7px;
+        margin-top:10px;
+        width:121%;
+    }
+}

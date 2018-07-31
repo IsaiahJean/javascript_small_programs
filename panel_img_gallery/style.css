@@ -1,0 +1,149 @@
+html {
+    box-sizing: border-box;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNxXwP2Gn3DxmnDCZxfVqe86bBvG7svqeVqZ_2YJjmx9rm5orT");
+    background-position: -30px 0px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+body { 
+    margin: 0; 
+}
+
+h1 {
+    color: red;
+    text-align: center;
+    max-height: 50px;
+    font-size: 3rem;
+    text-shadow: 2px 2px 6px royalblue;
+    font-family: Comic sans ms;
+}
+
+.header a {
+    text-align: center;
+    width: 100%;
+    display: block;
+    max-height: 30px;
+}
+
+.header img {
+    height: 80px;
+}
+
+.panels{
+    min-height: 100vh;
+    overflow: hidden;
+    display:flex;
+}
+
+.panel {
+    background: black;
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.05);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+        background 0.2s;
+    font-size: 20px;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel1 {
+    background-image: url("https://sa.kapamilya.com/absnews/abscbnnews/media/2017/news/09/26/092617_lebron.jpg");
+}
+.panel2 {
+    background-image: url("http://images.performgroup.com/di/library/omnisport/80/48/kevindurant-cropped_1jtutkjrfptjp1s15i2k2tk5mx.jpg?t=1925510370");
+}
+
+.panel3 {
+    background-image: url("https://cdn-s3.si.com/s3fs-public/styles/marquee_large_2x/public/2016/01/07/kawhi_leonard_spurs.jpg?itok=Zuf7U6tT");
+}
+
+.panel4 {
+    background-image: url("http://givemesport.azureedge.net/images/17/10/14/2761ade5f083429a5cfa1510039dea10/960.jpg");
+}
+
+.panel5 {
+    background-image: url("https://pbs.twimg.com/media/C0cp23WWgAALuu-.jpg");
+    background-position: 47% 100%;
+}
+
+/*flex items*/
+.panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 1.2s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel > *:first-child { transform: translateY(-100%); }
+.panel.open-active > *:first-child { transform: translateY(0); }
+.panel > *:last-child { transform: translateY(100%); }
+.panel.open-active > *:last-child { transform: translateY(0); }
+
+.panel p {
+    font-size: 1.8em;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+
+}
+
+.panel p:nth-child(1) {
+    align-items: flex-start;
+}
+
+.panel p:nth-child(2) {
+    font-size: 2em;
+    color: gold;
+    text-shadow: 4px 4px 5px black;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    opacity: 1;
+}
+
+.panel p:nth-child(3) {
+    align-items: flex-end;
+}
+
+.panel.open {
+    flex: 5;
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-size: 2em;
+        padding-top: 25px;
+    }
+    .panels {
+        overflow: auto;
+        display: block;
+    }
+    
+    .panel {
+        transition:
+            font-size  0s,
+            flex 0s,
+            background 0s;
+
+        height: 300px;
+    }
+    
+    .panel.open {
+        flex:0;
+        font-size: 20px;
+    }
+    .panel > *:first-child { transform: none; }
+    .panel.open-active > *:first-child { transform: none; }
+    .panel > *:last-child { transform: none; }
+    .panel.open-active > *:last-child { transform: none; }
+}
